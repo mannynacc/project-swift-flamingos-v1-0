@@ -7,7 +7,7 @@ const typewriter = new Typewriter(app, {
 const timeToWait = 1500;
 
 typewriter
-  .typeString("marlene.init(👋)")
+  .typeString("nacho.init(👋)")
   .pauseFor(timeToWait)
   .deleteAll()
   .typeString("I am Software Engineer")
