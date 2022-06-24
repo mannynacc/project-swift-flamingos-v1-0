@@ -9,7 +9,7 @@
 
 {% block content %}
 
-<form action="">
+<form action="" id="form">
   <label for="name">Name:</label><br>
   <input type="text" id="name" name="fname" value="John Doe"><br>
   <label for="email">Email:</label><br>
@@ -18,11 +18,22 @@
   <input type="text" id="content" name="lname" value="Type a message"><br><br>
   <input type="submit" id="submit" value="Submit">
 </form> 
+
+{% endblock %}
+
+{% block content %}
+
+<div id="timeline">
+
+</div>
+
 {% endblock %}
 
 {% block scripts %}
 <script src="https://kit.fontawesome.com/66aa7c98b3.js" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="../static/js/get_timeline_posts.js"></script>
 <script src="../static/js/post_timeline.js"></script>
 <script src="{{url_for('static', filename='js/type.js')}}"></script>
 {% endblock %}
