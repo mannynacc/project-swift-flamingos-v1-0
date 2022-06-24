@@ -7,8 +7,9 @@ async function getPosts () {
 
     const timeline = document.getElementById('timeline');
 	
-	for(post in posts)
+	for(i in posts)
     {
+        post = posts[i];
         console.log(post);
         timeline.innerHTML +=
         `<div class="post" id="post-${post.id}>
