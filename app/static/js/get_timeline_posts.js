@@ -3,14 +3,9 @@ async function getPosts () {
     method: 'GET'
     });
 	data = await res.json();
-	console.log(data.timeline_posts);
-	return data;
-}
+    posts = data.timeline_posts;
 
-function printPosts(posts) {
-	console.log("POSTS: ", posts);
-	
-	const timeline = document.getElementById('timeline');
+    const timeline = document.getElementById('timeline');
 	
 	for(post in posts)
     {
@@ -26,6 +21,4 @@ function printPosts(posts) {
     }
 }
 
-posts = getPosts().then(data => console.log(data));
-
-printPosts(posts.timeline_posts);
+posts = getPosts();
