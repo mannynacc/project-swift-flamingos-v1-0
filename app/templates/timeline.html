@@ -1,0 +1,28 @@
+{% extends "layouts/base.layout.html" %} {% block styles %}
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@700&display=swap" rel="stylesheet" />
+<link href="{{url_for('static', filename='css/about.css')}}" rel="stylesheet" />
+
+{% endblock %} 
+
+{% block content %}
+
+<form action="">
+  <label for="name">Name:</label><br>
+  <input type="text" id="name" name="fname" value="John Doe"><br>
+  <label for="email">Email:</label><br>
+  <input type="text" id="email" name="lname" value="johndoe@mlh.com"><br><br>
+  <label for="content">Content:</label><br>
+  <input type="text" id="content" name="lname" value="johndoe@mlh.com"><br><br>
+  <input type="submit" id="submit" value="Submit">
+</form> 
+{% endblock %}
+
+{% block scripts %}
+<script src="https://kit.fontawesome.com/66aa7c98b3.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="../static/js/post_timeline.js"></script>
+<script src="{{url_for('static', filename='js/type.js')}}"></script>
+{% endblock %}
