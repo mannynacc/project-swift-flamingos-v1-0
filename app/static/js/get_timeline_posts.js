@@ -1,20 +1,14 @@
 async function getPosts () {
-
-    fetch('http://mlhportofolio.duckdns.org:5000/api/timeline_post', {
+    res = await fetch('http://mlhportofolio.duckdns.org:5000/api/timeline_post', {
     method: 'GET'
-    })
-    .then(res => res.json())
-    .then(
-        (data) => {
-            console.log(data);
-            return data;
-        }
-    );
+    });
+    data = await res.json();
+    return data;
 }
 
-posts = getPosts();
+posts = getPosts().then(data => console.log(data));
 
-for(post in post)
+for(post in posts)
 {
     $('#timeline').append(
     `<div class="post" id="post-${post.id}>
