@@ -6,6 +6,7 @@ async function getPosts () {
     posts = data.timeline_posts;
 
     const timeline = document.getElementById('timeline');
+    timeline.innerHTML = ""
 	
 	for(i in posts)
     {
