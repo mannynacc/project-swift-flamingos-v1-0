@@ -7,9 +7,11 @@ from playhouse.shortcuts import model_to_dict
 
 load_dotenv()
 app = Flask(__name__)
-
-mydb = MySQLDatabase(os.getenv("MYSQL_DATABASE"),user=os.getenv("MYSQL_USER"), password=os.getenv( "MYSQL_PASSWORD"),host=os.getenv( "MYSQL_HOST"),port=3306
-)
+if os.getenv("TESTING") == "true":
+    print("Running in test mode")
+    mydb = SqliteDatabase('file:memory?mode=memory&cache=shared', uri=True)
+else:
+    mydb = MySQLDatabase(os.getenv("MYSQL_DATABASE"),user=os.getenv("MYSQL_USER"), password=os.getenv( "MYSQL_PASSWORD"),host=os.getenv( "MYSQL_HOST"),port=3306)
 
 print(mydb)
 
@@ -68,7 +70,7 @@ def post_time_line_post():
 	
 	count = TimelinePost.select().count()
 	
-	mydb.execute_sql(f'ALTER TABLE timelinepost AUTO_INCREMENT = {count}')
+	# mydb.execute_sql(f'ALTER TABLE timelinepost AUTO_INCREMENT = {count}')
 	
 	timeline_post = TimelinePost.create(name=name, email=email, content=content)
 	
