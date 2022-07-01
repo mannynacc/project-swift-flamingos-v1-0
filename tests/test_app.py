@@ -55,11 +55,10 @@ class AppTestCase(unittest.TestCase):
         assert first_post["content"] == "My name is Jimmy!"
 
         #test whether first post is rendered/loaded to screen
-        with app.test_request_context("/api/timeline_post", method="GET"):
-            response = self.client.get("/timeline")
-            assert response.status_code == 200
-            html = response.get_data(as_text=True)
-            assert 'data-test-id="timeline_post"' in html
+        response = self.client.get("/timeline")
+        assert response.status_code == 200
+        html = response.get_data(as_text=True)
+        assert 'data-test-id="timeline_post"' in html
 
     def test_malformed_timeline_post(self):
         #POST request missing name
