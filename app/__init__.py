@@ -1,9 +1,11 @@
+import json
 import os
 import datetime
 from flask import Flask, render_template, request
 from dotenv import load_dotenv
 from peewee import *
 from playhouse.shortcuts import model_to_dict
+import requests
 
 load_dotenv()
 app = Flask(__name__)
@@ -58,9 +60,12 @@ def hobbies():
 
     return render_template('hobbies.html', title="Hobbies", url=os.getenv("URL"), nacho_hobbies=nacho_hobbies, mateo_hobbies=mateo_hobbies, marlene_hobbies=marlene_hobbies) 
 
-@app.route('/timeline')
+@app.route('/timeline', methods=["GET"])
 def timeline():
-    return render_template('timeline.html', title='Timeline')
+    timeline_posts = requests.get("http://localhost:5000/api/timeline_post")
+    timeline_posts = json.loads(timeline_posts.text)["timeline_posts"]
+
+    return render_template('timeline.html', title='Timeline', timeline_posts=timeline_posts)
 
 @app.route("/api/timeline_post", methods=["POST"])
 def post_time_line_post():

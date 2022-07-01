@@ -10,17 +10,24 @@
 {% block content %}
 
 <form action="" id="form">
-  <label for="name">Name:</label><br>
-  <input type="text" id="name" name="name" value="John Doe"><br>
-  <label for="email">Email:</label><br>
-  <input type="text" id="email" name="email" value="johndoe@mlh.com"><br><br>
-  <label for="content">Content:</label><br>
-  <input type="text" id="content" name="content" value="Type a message"><br><br>
-  <input type="submit" id="submit" value="Submit">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" value="John Doe"><br>
+    <label for="email">Email:</label><br>
+    <input type="text" id="email" name="email" value="johndoe@mlh.com"><br><br>
+    <label for="content">Content:</label><br>
+    <input type="text" id="content" name="content" value="Type a message"><br><br>
+    <input type="submit" id="submit" value="Submit">
 </form> 
 
 <div id="timeline">
-  
+    {% for timeline_post in  timeline_posts %}
+        <div data-test-id="timeline_post">
+            <p>{{timeline_post.name}}</p>
+            <p>{{timeline_post.email}}</p>
+            <br>
+            <p>{{timeline_post.content}}</p>
+        </div>
+    {% endfor %}
 </div>
 
 {% endblock %}
