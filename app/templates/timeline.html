@@ -3,7 +3,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@700&display=swap" rel="stylesheet" />
-<link href="{{url_for('static', filename='css/about.css')}}" rel="stylesheet" />
+<link href="{{url_for('static', filename='css/timeline.css')}}" rel="stylesheet" />
 
 {% endblock %} 
 
@@ -20,15 +20,6 @@
 </form> 
 
 <div id="timeline">
-    {% for timeline_post in  timeline_posts %}
-        <div data-test-id="timeline_post">
-            <h3>{{timeline_post.name}}</h3>
-            <br>
-            <p>{{timeline_post.email}}</p>
-            <br>
-            <p>{{timeline_post.content}}</p>
-        </div>
-    {% endfor %}
 </div>
 
 {% endblock %}
