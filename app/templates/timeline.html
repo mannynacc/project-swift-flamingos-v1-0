@@ -22,7 +22,8 @@
 <div id="timeline">
     {% for timeline_post in  timeline_posts %}
         <div data-test-id="timeline_post">
-            <p>{{timeline_post.name}}</p>
+            <h3>{{timeline_post.name}}</h3>
+            <br>
             <p>{{timeline_post.email}}</p>
             <br>
             <p>{{timeline_post.content}}</p>
