@@ -13,7 +13,7 @@ async function getPosts () {
         post = posts[i];
         console.log(post);
         timeline.innerHTML +=
-        `<div class="post" id="post-${post.id}>
+        `<div class="post" id="post-${post.id}">
             <h3>${post.name}</h3>
             <span class="email">${post.email}</span>
             <span class="created-at">${post.created_at}</span>
