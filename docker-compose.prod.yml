@@ -23,7 +23,7 @@ services:
     image: jonasal/nginx-certbot
     restart: always
     environment:
-      - CERTBOT_EMAIL=name@example.com
+      - CERTBOT_EMAIL=manuelcota01@outlook.com
       - STAGING=1
       - DEBUG=1
     ports:
