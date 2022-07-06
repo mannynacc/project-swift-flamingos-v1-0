@@ -7,7 +7,7 @@ form.addEventListener('submit', function(e) {
     const payload = new FormData(form);
 
     // Post the payload using Fetch:
-    fetch('https://mlhportofolio.duckdns.org:5000/api/timeline_post', {
+    fetch('https://mlhportofolio.duckdns.org/api/timeline_post', {
     method: 'POST',
     body: payload,
     })

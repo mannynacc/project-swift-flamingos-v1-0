@@ -1,5 +1,5 @@
 async function getPosts () {
-    res = await fetch('https://mlhportofolio.duckdns.org:5000/api/timeline_post');
+    res = await fetch('https://mlhportofolio.duckdns.org/api/timeline_post');
 	data = await res.json();
     posts = data.timeline_posts;
 
