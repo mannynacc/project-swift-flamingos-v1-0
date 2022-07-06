@@ -24,8 +24,6 @@ services:
     restart: always
     environment:
       - CERTBOT_EMAIL=manuelcota01@outlook.com
-      - STAGING=1
-      - DEBUG=1
     ports:
       - 80:80
       - 443:443
