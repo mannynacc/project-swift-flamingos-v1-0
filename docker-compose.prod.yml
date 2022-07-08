@@ -21,7 +21,7 @@ services:
   nginx:
     container_name: nginx
     image: jonasal/nginx-certbot
-    restart: always
+    restart: unless-stopped
     environment:
       - CERTBOT_EMAIL=manuelcota01@outlook.com
       - STAGING=0
