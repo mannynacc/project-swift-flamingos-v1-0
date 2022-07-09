@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 services:
   myportfolio:
     container_name: myportfolio
@@ -8,7 +8,7 @@ services:
       - .env
     depends_on:
       - mysql
-
+  
   mysql:
     container_name: mysql
     image: mariadb
@@ -21,17 +21,15 @@ services:
   nginx:
     container_name: nginx
     image: jonasal/nginx-certbot
-    restart: unless-stopped
+    restart: always
     environment:
       - CERTBOT_EMAIL=manuelcota01@outlook.com
-      - STAGING=0
-      - DEBUG=1
     ports:
       - 80:80
       - 443:443
     volumes:
       - nginx_secrets:/etc/letsencrypt
-      - ./user_conf.d:/etc/nginx/user_conf.d:ro
+      - ./user_conf.d:/etc/nginx/user_conf.d
     depends_on:
       - myportfolio
 
