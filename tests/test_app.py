@@ -58,7 +58,7 @@ class AppTestCase(unittest.TestCase):
         response = self.client.get("/timeline")
         assert response.status_code == 200
         html = response.get_data(as_text=True)
-        assert 'data-test-id="timeline_post"' in html
+        assert '<div id="timeline">' in html
 
     def test_malformed_timeline_post(self):
         #POST request missing name

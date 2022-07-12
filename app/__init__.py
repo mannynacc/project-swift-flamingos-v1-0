@@ -65,10 +65,7 @@ def hobbies():
 
 @app.route('/timeline', methods=["GET"])
 def timeline():
-    timeline_posts = requests.get("http://localhost:5000/api/timeline_post")
-    timeline_posts = json.loads(timeline_posts.text)["timeline_posts"]
-
-    return render_template('timeline.html', title='Timeline', timeline_posts=timeline_posts)
+    return render_template('timeline.html', title='Timeline')
 
 @app.route("/api/timeline_post", methods=["POST"])
 def post_time_line_post():
