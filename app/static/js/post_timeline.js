@@ -7,11 +7,22 @@ form.addEventListener('submit', function(e) {
     const payload = new FormData(form);
 
     // Post the payload using Fetch:
-    fetch('https://mlhportofolio.duckdns.org/api/timeline_post', {
+    submit_post = await fetch('https://mlhportofolio.duckdns.org/api/timeline_post', {
     method: 'POST',
     body: payload,
-    })
-    .then(res => res.text())
-    .then(data => console.log(data))
-    .then(location.reload());
+    });
+
+    if (submit_post.status == 429) {
+        text = await res.text()
+
+        document.open();
+        document.write(text);
+        document.close();
+    }
+    else {
+
+        text = await res.text()
+        console.log(text)
+        location.reload()
+    }
 })
