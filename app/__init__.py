@@ -5,7 +5,6 @@ from flask import Flask, render_template, request, Response
 from dotenv import load_dotenv
 from peewee import *
 from playhouse.shortcuts import model_to_dict
-import requests
 import re
 #from werkzeug.wrappers.response import Response
 
@@ -82,7 +81,7 @@ def post_time_line_post():
 	if email == "" or not email or not re.fullmatch(r'\b[A-za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b', email):
 		return "Invalid email", 400, {'ContentType':'text/html'}
 	if content == "" or not content:
-		return "Invalid content", 400, {'ContentType':'text/html'}	
+		return "Invalid content", 400, {'ContentType':'text/html'}
 	
 	timeline_post = TimelinePost.create(name=name, email=email, content=content)
 	
