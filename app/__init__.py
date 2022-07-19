@@ -74,7 +74,7 @@ def post_time_line_post():
 	
 	count = TimelinePost.select().count()
 	
-	mydb.execute_sql(f'ALTER TABLE timelinepost AUTO_INCREMENT = {count}')
+	# mydb.execute_sql(f'ALTER TABLE timelinepost AUTO_INCREMENT = {count}')
 	
 	if not name or name == "":
 		return "Invalid name", 400, {'ContentType':'text/html'}
