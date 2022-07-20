@@ -14,6 +14,8 @@ async function getPosts () {
         `<div class="post" id="post-${post.id}">
             <h3>${post.name}</h3>
             <span class="created-at">${post.created_at}</span>
+            <i class="fa fa-trash onclick='deleteRow(" + post.id + ")'>delete</i>
+           
             <br>
             <span class="email">${post.email}</span>
 
