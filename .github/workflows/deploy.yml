@@ -39,6 +39,7 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - name: Configure ssh
+        id: ssh
         run: |
           mkdir -p ~/.ssh/
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/deploy-key.pem
@@ -57,7 +58,14 @@ jobs:
           AWS_DEFAULT_REGION: us-west-1
 
       - name: Deploy site
+        id: deploy
         run: ssh my-vm 'cd ${{ secrets.PROJECT_ROOT }} && ./redeploy-site.sh && docker compose ps'
 
       - name: Send success message to Discord
+        id: success-msg
         run: curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=Deployment successful! 🚀"
+      
+      - name: Check for failures
+        if: steps.ssh.outcome != 'success' || steps.deploy.outcome != 'success' || steps.success-msg.outcome != 'success'
+        
+        run: curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=🚨 Deployment failed"
