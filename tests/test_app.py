@@ -3,6 +3,7 @@ from urllib import response
 import requests
 import json
 import os
+import logging
 os.environ['TESTING'] = 'true'
 
 from app import app
@@ -10,6 +11,7 @@ from app import app
 class AppTestCase(unittest.TestCase):
     def setUp(self):
         self.client = app.test_client()
+        self.log = logging.getLogger("TestLog")
 
     def tearDown(self):
         self.client = "NULL"
@@ -78,3 +80,13 @@ class AppTestCase(unittest.TestCase):
         assert response.status_code == 400
         html = response.get_data(as_text=True)
         assert "Invalid email" in html
+
+    def test_delete_timeline_post(self):
+        response = self.client.delete("/api/timeline_post/1")
+
+        assert response.status_code == 200
+        
+        delete_confirmation = response.get_data(as_text=True)
+
+        assert delete_confirmation == "Post with 1 has been deleted"
+
