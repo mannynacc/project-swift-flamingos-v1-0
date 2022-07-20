@@ -30,4 +30,4 @@ jobs:
           AWS_DEFAULT_REGION: us-west-1
 
       - name: Deploy site
-        run: ssh my-vm 'cd ${{ secrets.PROJECT_ROOT }} && ./redeploy-site.sh'
+        run: ssh my-vm 'cd ${{ secrets.PROJECT_ROOT }} && ./redeploy-site.sh && docker compose ps'
