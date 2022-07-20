@@ -2,6 +2,7 @@
 .vscode
 __pycache__
 *.pyc
+*.swp
 .env
 python3-virtualenv
 flask.sqlite
