@@ -97,7 +97,8 @@ def get_timeline_post():
 
 @app.route('/api/timeline_post/<int:id>', methods=["DELETE"])
 def del_time_line_post(id):
-	print(id)
-	d = TimelinePost.delete().where(TimelinePost.id == id)
-	d.execute()
-	return f'Post with {id} has been deleted'
+    print(id)
+
+    d = TimelinePost.delete().where(TimelinePost.id == id)
+    d.execute()
+    return f'Post with id {id} has been deleted'

@@ -88,5 +88,5 @@ class AppTestCase(unittest.TestCase):
         
         delete_confirmation = response.get_data(as_text=True)
 
-        assert delete_confirmation == "Post with 1 has been deleted"
+        assert delete_confirmation == "Post with id 1 has been deleted"
 
